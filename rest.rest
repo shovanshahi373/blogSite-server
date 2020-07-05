@@ -1,0 +1,13 @@
+GET http://localhost:5000/api/pokemon
+
+###
+GET http://localhost:5000/getDetails
+
+###
+GET http://localhost:5000/api/pokemon/id/373
+
+###
+GET http://localhost:5000/api/pokemon/region/galar
+
+###
+GET http://localhost:5000/api/pokemon/type/Dragon

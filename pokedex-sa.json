@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "pokedex-5d94a",
+  "private_key_id": "c3228f3e54697b6bd00a1a8aa59fc95f40ca8252",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCiGToI1RT4hi/t\nR7x9+fhDqNLDCcuQIIPZ4D9pddlozvTdlKDWb2yt2QVf72arwIn5XmOEtoFmzUYw\nEi8IptAqgnfSfhs9/9MJvjtWl3K3+l3H4UPInYnyRbwg4FtdnuhRiPRhFDI0hX3g\nJiDx2+cCkg5TM+qpHUZIWUzCdm4C60NZIcSc3h4nyHeLlhOmtvv6JiG/eOtFg8SP\nrEd8NKPP0VI5NUbVlP8Oc8fOXwW0SeiO5IsRd0KTKlZkuefYMcZXLxSpIYYrClu2\nkbvD0mVwkA73k4Irbbh9F3o17DSF/1iSo6m1hOsILZ/Fg6XXE2jAypavAPuhPYVw\nPGxnh6S5AgMBAAECggEAAW3kXva1cenSshMMkSPLP5oMMI19aiV89mtEeroAAOQl\nsNzCM2+MXQ3E9e8pK07OBBED/jG3ezuRjUqrwOzGeNKgP46+hnZsSKhsUKlJezvN\nw5j8vU2sBCL/Rcym6rn699mmAWf7wMVfaTBoTj4z/WNiTBgVhgh/DAGw/pMZm8uJ\nqURNt3TYYo42tB+Kx0Q+4TP90J7HqGbNoiSyGMwq+OkuuOGZCS8L61Kz/TbgBWJc\nzJfUDM4ESwLthx9X0nS24DkiAgLkTornDW3oo3JrOF/Tx/Dc2pZ4kAvotVIxjmlS\nXSEgkliJRFChOwUjy8P/Hg2DQK/MFWrzEPU/9P+jfQKBgQDMDfcHQ1qKjWyzERLJ\nK3yykx4ujUT8lPLD2VsExnK8kKcGA7T6iC9QVzzkYwEpzzKU/YE/iyqfzSVmEuS3\nriHxI/Z9Z9ax5nzs0imDk3BqiLPV35fGV3OkGa86GwF6O/ZXbDC0TOq4ro/akg6D\nnmW40AzT8TQ/tDizQQI9JmXEtwKBgQDLXQefRIGvVd5n3ZOJSNb8f6TVPjebQk3m\n6hFcH4VgF4qodGTuWmXj1yb9yKZoySNFGDrSfZlsliOVmw0IYcVSibteO2M+dmTa\n54aBIQqp3LNVXAyYkSCeYUyzwcmefas/epgthn1h4ctplqfYeC9aWmf/KAnIPC1t\naFzncGXSDwKBgCg2PE8nG8mgEyK6o5wXQMykJ1d/KXApHiowRDqNrQCx9Og/hMO2\nYLSRbIOJaypFFa+8wWK3VyAEunECGiaEX1X5A1M1Sl7mkAnPZLT0MjwcUmw8UtmY\nVEardRebSNBAzsvtmy981OiuJdUp4UhYx60C+vQtXWGMb3wLvJg2X+nDAoGANFhU\nzu0OSHhcz/VbtXmXRNUCM5VZMNCHRsm3ADRo20wT97pGBIgmM9g8hBRyqQQk3PMY\nqPeFV0rqC+cmGqM37D/hh6bXq8tDuIjhuTktCn3xdyZDY73vXHUFDjvyTqZgPu2q\nYAV/HoPFHP+XYoPFBIfCvw2qPu0mcEPtrfDjdIcCgYApJzioTH6uVnbKCCq0NRC7\nehwE10qEtwwmBy9kvBgzY5+475qAWZ8cRsRW17JdbBCYekChebMm25SX7Z/e5/JH\nodBPx3deM95VZTrSPaLMK/+eNqM0usjhZxW1TmroJ/2yPjI3LixMZ7aRxy9BLdin\nocLDTqWrjiHjDa5Jzqmfew==\n-----END PRIVATE KEY-----\n",
+  "client_email": "sovan-94@pokedex-5d94a.iam.gserviceaccount.com",
+  "client_id": "117775111007320000069",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sovan-94%40pokedex-5d94a.iam.gserviceaccount.com"
+}
