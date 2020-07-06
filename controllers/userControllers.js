@@ -7,16 +7,7 @@ const jwt = require("jsonwebtoken");
 const usersRef = fStore.collection("/users");
 
 const registerController = (req, res) => {
-  console.log("contents of req.body ", req.body);
   const { username: name, email, password } = req.body;
-  //check lexically they are valid
-  // const errors = {};
-  // let [nameError, nameMsg] = isName(name);
-  // if (nameError) errors.name = nameMsg;
-  // let [emailError, emailMsg] = isEmail(email);
-  // if (emailError) errors.mail = emailMsg;
-  // if (password !== confirmPassword) errors.password = "passwords did not match";
-  // if (Object.keys(errors).length) return res.status(400).json(errors);
   usersRef
     .where("email", "==", email)
     .get()
@@ -52,16 +43,9 @@ const registerController = (req, res) => {
 };
 
 const loginController = (req, res) => {
-  //this validation task should be moved to client side
-  const { email, password } = req.body;
-  // const errors = {};
-  // const [emailError, message] = isEmail(email);
-  // if (emailError) {
-  //   errors.mail = message;
-  //   return res.status(400).json({ errors });
-  // }
-  // console.log("validation passed");
+  const { email, password, persistToken } = req.body;
   let user = {};
+  let token;
   usersRef
     .where("email", "==", email)
     .get()
@@ -87,13 +71,37 @@ const loginController = (req, res) => {
     })
     .then((doc) => {
       if (doc.exists) {
-        const token = jwt.sign(
-          { name: doc.data().name, uid: doc.id },
-          process.env.SECRET
-        );
+        if (persistToken) {
+          token = jwt.sign(
+            { name: doc.data().name, uid: doc.id },
+            process.env.SECRET
+          );
+        } else {
+          token = jwt.sign(
+            {
+              data: { name: doc.data().name, uid: doc.id },
+              exp: Math.floor(Date.now() / 1000) + (60 * 60) / 4,
+            },
+            process.env.SECRET
+          );
+        }
+        // const token = jwt.sign(
+        //   { name: doc.data().name, uid: doc.id },
+        //   process.env.SECRET
+        // );
         req.userId = user.userId;
+        // res.headers["authorization"] = token;
         console.log("authentication verified");
-        return res.status(200).json({ token });
+        const finalUserData = {
+          name: user.name,
+          email: user.email,
+          joined: user.joined,
+          avatar: user.avatar,
+          backgroundImage: user.backgroundImage,
+          blogCount: user.blogs,
+          userId: user.userId,
+        };
+        return res.status(200).json({ token, user: finalUserData });
       }
     })
     .catch((err) => res.json({ err }));
