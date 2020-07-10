@@ -7,7 +7,10 @@ const clapsRef = fStore.collection("/claps");
 const createBlog = (req, res) => {
   //assuming validation is done on client
   const { title, body } = req.body;
-  const user = req.user;
+  const { data: user } = req.user;
+  // if (exp && exp < Math.floor(Date.now() / 1000)) {
+  //   return res.status(408).json({ msg: "session has expired" });
+  // }
   blogsRef
     .add({
       title,
@@ -106,7 +109,7 @@ const getBlogById = (req, res) => {
       if (!docs.empty) {
         docs.forEach((doc) => {
           console.log(doc.data());
-          mycomments.push(doc.data());
+          mycomments.push({ ...doc.data(), id: doc.id });
         });
         // console.log("no comments found");
       }
@@ -130,10 +133,15 @@ const getBlogsByAuthor = (req, res) => {
 };
 
 const postCommentToBlog = (req, res) => {
-  const user = req.user;
+  const { data: user } = req.user;
+  // if (exp && exp < Math.floor(Date.now() / 1000)) {
+  //   return res.status(408).json({ msg: "session has expired" });
+  // }
   const { id } = req.params;
   const { body } = req.body;
+  console.log("the body is", body);
   let userImage = "";
+  let commentData = {};
   blogsRef
     .doc(`${id}`)
     .get()
@@ -152,7 +160,7 @@ const postCommentToBlog = (req, res) => {
           }
         })
         .catch((err) => res.json({ err }));
-      return commentsRef.add({
+      commentData = {
         body,
         upvotes: 0,
         blogId: id,
@@ -160,17 +168,26 @@ const postCommentToBlog = (req, res) => {
         userId: user.uid,
         avatar: userImage,
         createdAt: new Date().toISOString(),
-      });
+      };
+      return commentsRef.add({ ...commentData });
     })
     .then((doc) => {
       console.log("comment created for given blog ", id);
-      res.status(201).json({ msg: "comment posted successfully" });
+      res.status(201).json({ data: { ...commentData, id: doc.id } });
     })
     .catch((err) => res.status(500).json({ err }));
 };
 
+const hasLikedBlog = () => {};
+
 const likeBlog = (req, res) => {
-  const user = req.user;
+  const { data: user } = req.user;
+  // if (exp && exp < Math.floor(Date.now() / 1000)) {
+  //   console.log("session has expired!");
+  //   return res.status(408).json({ msg: "session has expired" });
+  // }
+  // console.log("user from like: ", user);
+
   const { id } = req.params;
   let clapCount;
   clapsRef
@@ -213,7 +230,11 @@ const likeBlog = (req, res) => {
 };
 
 const unLikeBlog = (req, res) => {
-  const user = req.user;
+  // const user = req.user;
+  const { data: user } = req.user;
+  // if (exp && exp < Math.floor(Date.now() / 1000)) {
+  //   return res.status(408).json({ msg: "session has expired" });
+  // }
   const { id } = req.params;
   let clapCount;
   let clapId;

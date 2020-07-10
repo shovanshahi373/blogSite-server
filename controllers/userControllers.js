@@ -80,7 +80,7 @@ const loginController = (req, res) => {
           token = jwt.sign(
             {
               data: { name: doc.data().name, uid: doc.id },
-              exp: Math.floor(Date.now() / 1000) + (60 * 60) / 4,
+              exp: Math.floor(Date.now() / 1000) + 60 * 60,
             },
             process.env.SECRET
           );

@@ -3,6 +3,7 @@ const app = express();
 const allPokemon = require("./completePokeInfo.json");
 const cors = require("cors");
 const getDetails = require("./fiyabase/index").getDetails;
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 const api = require("./routes/api");
